@@ -1,0 +1,7 @@
+total 48
+-rwxrwxrwx 1 ethan ethan 16896 Apr 13 09:28 chat_server
+-rwxrwxrwx 1 ethan ethan  3975 Apr 13 10:41 chat_server.c
+-rwxrwxrwx 1 ethan ethan    41 Apr 13 10:29 login.txt
+-rwxrwxrwx 1 ethan ethan     0 Apr 13  2026 out.txt
+-rwxrwxrwx 1 ethan ethan 16848 Apr 13 10:52 telnet_server
+-rwxrwxrwx 1 ethan ethan  3070 Apr 13 10:32 telnet_server.c
