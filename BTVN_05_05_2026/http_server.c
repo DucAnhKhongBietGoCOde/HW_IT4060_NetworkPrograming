@@ -12,8 +12,6 @@ void worker_process(int listener)
 {
     while (1)
     {
-        // ===== accept client =====
-
         int client =
             accept(listener, NULL, NULL);
 
@@ -25,8 +23,6 @@ void worker_process(int listener)
 
         printf("Worker %d accepted client\n",
                getpid());
-
-        // ===== recv request =====
 
         char buf[2048];
 
@@ -42,8 +38,6 @@ void worker_process(int listener)
 
         printf("\n===== HTTP REQUEST =====\n");
         printf("%s\n", buf);
-
-        // ===== HTTP RESPONSE =====
 
         char *msg =
             "HTTP/1.1 200 OK\r\n"
@@ -95,29 +89,20 @@ int main()
 
     printf("Server is listening on port 8080...\n");
 
-    // ===== PREFORK =====
-
     for (int i = 0; i < WORKERS; i++)
     {
         pid_t pid = fork();
-
         if (pid == 0)
         {
-            // child worker
-
             worker_process(listener);
-
             exit(0);
         }
     }
 
-    // parent process ngủ
     while (1)
     {
         pause();
     }
-
     close(listener);
-
     return 0;
 }
