@@ -142,7 +142,8 @@ int main() {
 
         if (waiting_client == -1) {
             waiting_client = client;
-            printf("Waiting for another client to chat with %d...\n", client);
+            char *waitmsg = "Waiting for another client...\n";
+            send(client, waitmsg, strlen(waitmsg), 0);
         } else {
             ChatPair *pair = malloc(sizeof(ChatPair));
             pair->client1 = waiting_client;
